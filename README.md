@@ -16,12 +16,14 @@
 
 This API provides functionalities to manage a library system. It includes endpoints for user authentication and book management, built using Node.js, Express, and MongoDB with Mongoose.
 
+
 ## Technologies used
 - NodeJs
 - Express
 - MongoDb
 - Mongoose
 - JsonWebToken
+
 
 ## Project Structure
 ```
@@ -40,6 +42,7 @@ Additionally, a `./env` file is recommended with the following variables:
 - `PORT`: The port on which the server will listen.
 - `JWT_SECRET_WORD` : The secret word used for JSON Web Token (JWT) authentication.
 - `CONNECTION_STRING` = The connection string for MongoDB.
+
 
 ## Api Endpoints
 
@@ -140,6 +143,7 @@ Delete a book by its ID (requires user authentication).
 ```
 
 
+
 ## Using JSON Web Tokens
 
 This API uses JSON Web Tokens (JWT) for authentication. To access protected routes, include a valid JWT in the Authorization header of your requests.
@@ -150,6 +154,7 @@ This API uses JSON Web Tokens (JWT) for authentication. To access protected rout
 ```
 Authorization: Bearer your.jwt.token.here
 ```
+
 
 ## Installation
 
