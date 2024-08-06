@@ -114,7 +114,7 @@ To install the project, run:
 
 ```
 git clone https://github.com/AgustinFRUni/node-js-course.git
-cd yourproject
+cd node-js-course
 npm install
 ```
 
