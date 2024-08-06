@@ -4,7 +4,7 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Examples](#techs)
+2. [Technologies Used](#techs)
 3. [Project Structure](#project-structure)
 4. [API Endpoints](#api-endpoints)
    - [Authentication](#authentication)
