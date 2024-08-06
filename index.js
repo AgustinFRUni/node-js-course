@@ -2,6 +2,7 @@ import express from 'express'
 import 'dotenv/config'
 import './config/mongodb.js'
 import usersRouter from './routes/users.js'
+import bookRouter from './routes/books.js'
 const { PORT } = process.env
 
 const app = express()
@@ -16,6 +17,8 @@ app.get('/', function (req, res, next) {
 })
 
 app.use('/users', usersRouter)
+
+app.use('/books', bookRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
