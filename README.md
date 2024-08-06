@@ -37,9 +37,9 @@ The system follows a client-server architecture and utilizes a MongoDB database 
 The server is built using Express, and you can find its code in /controllers, /models, and /routes. The client-side implementation is not explicitly mentioned but would generally be included in a separate directory if present.
 
 Additionally, a `./env` file is recommended with the following variables:
-`PORT`: The port on which the server will listen.
-`JWT_SECRET_WORD` : The secret word used for JSON Web Token (JWT) authentication.
-`CONNECTION_STRING` = The connection string for MongoDB.
+- `PORT`: The port on which the server will listen.
+- `JWT_SECRET_WORD` : The secret word used for JSON Web Token (JWT) authentication.
+- `CONNECTION_STRING` = The connection string for MongoDB.
 
 ## Api Endpoints
 
