@@ -1,19 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca API Documentation</title>
+  <link rel="stylesheet" href="/styles.css"> <!-- Agrega un archivo CSS si es necesario -->
 </head>
 
 <body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
+  <div class="container">
+    <h1>Biblioteca API 📖</h1>
+
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#techs">Technologies Used</a></li>
+      <li><a href="#project-structure">Project Structure</a></li>
+      <li><a href="#api-endpoints">API Endpoints</a></li>
+      <ul>
+        <li><a href="#authentication">Authentication</a></li>
+        <li><a href="#books">Books</a></li>
+      </ul>
+      <li><a href="#using-json-web-tokens">Using JSON Web Tokens</a></li>
+      <li><a href="#installation">Installation</a></li>
+    </ol>
+
+    <h2 id="introduction">Introduction</h2>
+    <p>This API provides functionalities to manage a library system. It includes endpoints for user authentication and
+      book management, built using Node.js, Express, and MongoDB with Mongoose.</p>
+
+    <h2 id="techs">Technologies Used</h2>
+    <ul>
+      <li>NodeJs</li>
+      <li>Express</li>
+      <li>MongoDb</li>
+      <li>Mongoose</li>
+      <li>JsonWebToken</li>
+    </ul>
+
+    <h2 id="project-structure">Project Structure</h2>
+    <pre>
+root/
+├── config/
+├── controllers/
+├── models/
+└── routes/
+        </pre>
+    <p>The system follows a client-server architecture and utilizes a MongoDB database managed with Mongoose to handle
+      data storage.</p>
+    <p>The server is built using Express, and you can find its code in <code>/controllers</code>, <code>/models</code>,
+      and <code>/routes</code>. The client-side implementation is not explicitly mentioned but would generally be
+      included in a separate directory if present.</p>
+    <p>Additionally, a <code>./env</code> file is recommended with the following variables:</p>
+    <ul>
+      <li><code>PORT</code>: The port on which the server will listen.</li>
+      <li><code>JWT_SECRET_WORD</code>: The secret word used for JSON Web Token (JWT) authentication.</li>
+      <li><code>CONNECTION_STRING</code>: The connection string for MongoDB.</li>
+    </ul>
+
+    <h2 id="api-endpoints">API Endpoints</h2>
+
+    <h3 id="authentication">Authentication</h3>
+    <h4>POST /users/register</h4>
+    <p>Register a new user.</p>
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{
+  "username": "user",
+  "password": "pass"
+}</code></pre>
+
+    <h4>POST /users/login</h4>
+    <p>Authenticate a user and return a token.</p>
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{
+  "username": "user",
+  "password": "pass"
+}</code></pre>
+
+    <h3 id="books">Books</h3>
+    <h4>GET /books/</h4>
+    <p>Retrieve all books.</p>
+
+    <h4>GET /books/:id</h4>
+    <p>Retrieve a book by its ID.</p>
+
+    <h4>POST /books/</h4>
+    <p>Create a new book (requires user authentication).</p>
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{
+  "title": String,
+  "isbn": String,
+  "category": String,
+  "price": Number,
+  "authorName": String,
+  "yearOfRelease": Number,
+  "sinopsis": String
+}</code></pre>
+
+    <h4>PATCH /books/:id</h4>
+    <p>Update an existing book (requires user authentication).</p>
+
+    <h4>DELETE /books/:id</h4>
+    <p>Delete a book by its ID (requires user authentication).</p>
+
+    <h5>Example JSON for books</h5>
+    <pre><code>{
+  "title": "El Aleph",
+  "isbn": "978-987-566-566-5",
+  "category": "Short Stories",
+  "price": 15.99,
+  "authorName": "Jorge Luis Borges",
+  "yearOfRelease": 1949,
+  "sinopsis": "A collection of short stories by Argentine writer Jorge Luis Borges. Each story explores the themes of infinity, labyrinths, and the nature of reality."
+}
+{
+  "title": "Rayuela",
+  "isbn": "978-950-511-900-4",
+  "category": "Novel",
+  "price": 18.50,
+  "authorName": "Julio Cortázar",
+  "yearOfRelease": 1963,
+  "sinopsis": "An experimental novel by Argentine writer Julio Cortázar. The book can be read in multiple sequences, offering different narrative paths and outcomes."
+}
+{
+  "title": "Martín Fierro",
+  "isbn": "978-950-03-0981-8",
+  "category": "Epic Poetry",
+  "price": 12.00,
+  "authorName": "José Hernández",
+  "yearOfRelease": 1872,
+  "sinopsis": "An epic poem by Argentine writer José Hernández. It tells the story of a gaucho named Martín Fierro, his adventures, and his resistance against the injustices of society."
+}</code></pre>
+
+    <h2 id="using-json-web-tokens">Using JSON Web Tokens</h2>
+    <p>This API uses JSON Web Tokens (JWT) for authentication. To access protected routes, include a valid JWT in the
+      Authorization header of your requests.</p>
+
+    <h4>Example Header:</h4>
+    <pre><code>Authorization: Bearer your.jwt.token.here</code></pre>
+
+    <h2 id="installation">Installation</h2>
+    <p>To install the project, run:</p>
+    <pre><code>git clone https://github.com/AgustinFRUni/node-js-course.git
+cd node-js-course
+npm install</code></pre>
+  </div>
 </body>
 
 </html>
