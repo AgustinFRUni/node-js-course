@@ -21,7 +21,7 @@ export const getById = async function (req, res, next) {
 export const create = async function (req, res, next) {
   try {
     const document = new BookModel({
-      title: req.body.name,
+      title: req.body.title,
       isbn: req.body.isbn,
       category: req.body.category,
       price: req.body.price,
